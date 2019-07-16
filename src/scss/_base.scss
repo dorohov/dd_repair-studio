@@ -39,23 +39,6 @@
             opacity: 1;
         }
     }
-    .is--animate-graph {
-        &.is--anim {
-            animation: graphAnim 3s linear alternate;
-            animation-iteration-count: 1;
-            stroke-dashoffset: 1000;
-            stroke-dasharray: 1000;
-            animation-fill-mode: both;
-        }
-    }
-    .is--animate-graph-circle {
-        &.is--anim {
-            animation: graphAnimCircles 1s linear alternate;
-            animation-iteration-count: 1;
-            animation-fill-mode: both;
-            animation-delay: 2s;
-        }
-    }
 }
 
 @keyframes graphAnim {

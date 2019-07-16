@@ -2,28 +2,8 @@
     "use strict"
     $(function() {
 
-        numberAnimation()
         startAnimationBlocks()
-        startAnimationGraphs()
-
-        function numberAnimation() {
-            var numsItems = $('.is--animate-num')
-            numsItems.each(function() {
-                var thisNumber = $(this)
-                var thisNumberDataNum = $(this).data('num')
-                var thisToggle = true
-
-                if($(this).visible(true) && !$(this).hasClass('is--finish')) {
-                    thisNumber.animateNumber({
-                        number: thisNumberDataNum
-                    }, {
-                        easing: 'swing',
-                        duration: 1000
-                    });
-                    thisNumber.addClass('is--finish')
-                }
-            })
-        }
+        setPaddingForContainerClasses()
 
         function startAnimationBlocks() {
             var blockItems = $('.is--animate-block')
@@ -46,38 +26,22 @@
             })
         }
 
-        function startAnimationGraphs() {
-            var blockItems = $('.is--animate-graph')
-            blockItems.each(function() {
-                var thisBlock = $(this)
-
-                if($(this).visible(true) && !$(this).hasClass('is--finish')) {
-                    thisBlock
-                        .addClass('is--anim')
-
-                    thisBlock.siblings('.is--animate-graph-circle')
-                            .addClass('is--anim')
-                }
+        function setPaddingForContainerClasses() {
+            var padding = document.getElementsByClassName('__dd__container')[0].getBoundingClientRect()
+            $('.__dd-container-left').css({
+                paddingLeft: padding.left + 30
+            })
+            $('.__dd-container-right').css({
+                paddingRight: padding.left + 30
             })
         }
 
-        $(document).scroll(function() {
-            numberAnimation()
-            startAnimationBlocks()
-            startAnimationGraphs()
+        $(window).resize(function() {
+            setPaddingForContainerClasses()
         })
 
-        $('.__dd__cursor').on('mousemove', function(e) {
-            var xPos = e.clientX
-            $('.__dd__block-on__or.is--on').css({
-                transform: 'translateX(-' + xPos / 40 + 'px)'
-            })
-            $('.__dd__block-on__or.is--tw').css({
-                transform: 'translateX(' + xPos / 80 + 'px)'
-            })
-            $('.__dd__block-on__or.is--th').css({
-                transform: 'translateX(-' + xPos / 110 + 'px)'
-            })
+        $(document).scroll(function() {
+            startAnimationBlocks()
         })
 
     })

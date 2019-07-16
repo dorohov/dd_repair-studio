@@ -10,6 +10,7 @@
         display: flex;
         align-items: center;
         font-size: 18px;
+        flex-wrap: wrap;
         &__num {
             margin-right: 70px;
             font-weight: 200;
@@ -17,13 +18,20 @@
         &__text {
             font-weight: 600;
         }
+        &__sub {
+            width: 100%;
+            padding-top: 50px;
+            font-size: 16px;
+            line-height: 19px;
+        }
         &.is--white {
             .__dd {
                 &-heading {
                     &__num {
                         color: rgba(#fff, .29);
                     }
-                    &__text {
+                    &__text,
+                    &__sub {
                         color: #fff;
                     }
                 }
@@ -35,7 +43,8 @@
                     &__num {
                         color: #18181F;
                     }
-                    &__text {
+                    &__text,
+                    &__sub {
                         color: #18181F;
                     }
                 }
@@ -56,6 +65,9 @@
             margin-bottom: 30px !important;
             &__num {
                 margin-right: 30px;
+            }
+            &__sub {
+                padding-top: 25px;
             }
         }
     }
